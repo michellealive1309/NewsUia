@@ -1,0 +1,49 @@
+.messaging_container {
+    visibility: hidden;
+    max-width: 300px;
+    left: 50%;
+    top: 30px;
+    position: fixed;
+    background-color: #fff;
+    margin-left: -150px;
+    color: #000;
+    text-align: left;
+    padding: 15px;
+    box-shadow: 5px 5px 15px #606770;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    .title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    .subtitle {
+
+    }
+}
+
+.messaging_container.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {top: 0; opacity: 0;}
+    to {top: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {top: 0; opacity: 0;}
+    to {top: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {top: 30px; opacity: 1;}
+    to {top: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {top: 30px; opacity: 1;}
+    to {top: 0; opacity: 0;}
+}

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">Group</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="group_container">
+    <div class="group_inner-container">
+      <div class="group_info">
+        <div class="title">
+          <h2>{{ groupData.name }}</h2>
+          <span>By {{ groupData.owner | nameGetter | async }}</span>
+        </div>
+        <div class="privacy">
+          <ion-item *ngIf="groupData.privacy === 'public'" lines="none">
+            <ion-icon name="globe" slot="start"></ion-icon>
+            <ion-label>Public</ion-label>
+          </ion-item>
+          <ion-item *ngIf="groupData.privacy === 'private'" lines="none">
+            <ion-icon name="lock" slot="start"></ion-icon>
+            <ion-label>Private</ion-label>
+          </ion-item>
+        </div>
+        <div class="unsubscribe">
+          <ion-button (click)="unsubscribeGroup()" color="danger">
+            <ion-icon slot="end" name="alert"></ion-icon>
+            Unsubscribe
+          </ion-button>
+        </div>
+      </div>
+      <div class="group_content">
+        <app-annoucefeed [group]="groupId"></app-annoucefeed>
+      </div>
+    </div>
+  </div>
+</ion-content>

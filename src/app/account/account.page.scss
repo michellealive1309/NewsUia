@@ -1,0 +1,26 @@
+.account_container {
+    display: flex;
+    justify-content: center;
+    .account_inner-container {
+        display: block;
+        width: 100%;
+        max-width: 500px;
+        padding-top: 30px;
+        .account_profile {
+            padding-left: 100px;
+            text-align: left;
+            margin-bottom: 20px;
+            .profile_name {
+                h3 { font-size: 2em;padding:0;margin:0; }
+                h6 { color: #606766;margin: 0;font-size: 13px;}
+            }
+            .profile_position {
+                h6 { color: #606766;margin: 0;font-size: 13px; }
+            }
+        }
+        .account_group {
+            margin-bottom: 20px;
+            ion-item {cursor: pointer;}
+        }
+    }
+}

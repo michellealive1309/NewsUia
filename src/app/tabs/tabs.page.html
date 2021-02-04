@@ -1,0 +1,30 @@
+<ion-tabs>
+
+  <ion-tab-bar [slot]="position">
+    <ion-tab-button tab="home">
+      <ion-icon name="home"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="favorite">
+      <ion-icon name="save"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="search">
+      <ion-icon name="search"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="account">
+      <ion-icon name="contact"></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+  <div class="messaging_container" [ngClass]="{'show':isShow}">
+    <div class="title">
+      {{ message?.data.group }}
+    </div>
+    <div class="subtitle">
+      is just added {{ message?.data.type }}.
+    </div>
+  </div>
+
+</ion-tabs>

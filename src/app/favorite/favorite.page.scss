@@ -1,0 +1,8 @@
+.favorite_container {
+    display: flex;
+    justify-content: center;
+    .favorite_inner-containner {
+        max-width: 700px;
+        width: 100%;
+    }
+}

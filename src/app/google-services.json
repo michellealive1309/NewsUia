@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "281789257178",
+    "firebase_url": "https://uianews.firebaseio.com",
+    "project_id": "uianews",
+    "storage_bucket": "uianews.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:281789257178:android:e369080272980fd9",
+        "android_client_info": {
+          "package_name": "com.csrmutk.uianews"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "281789257178-rk2mummpin4a1qk2u6sgo0g18376srfq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.csrmutk.uianews",
+            "certificate_hash": "40ed3a6e1509036153f85643454b17c45ce6e0fe"
+          }
+        },
+        {
+          "client_id": "281789257178-amtulof6h32q1dk6bb66led9qqumvpo7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDB8B03GlNJLfW8rZg4ogl48bRR_9d3hfk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "281789257178-amtulof6h32q1dk6bb66led9qqumvpo7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "281789257178-rgp6nu4h9608jq65cnnpfqirj94t737j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.csrmutk.uianews"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

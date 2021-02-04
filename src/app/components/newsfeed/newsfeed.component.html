@@ -1,0 +1,61 @@
+<div class="news-feed_container">
+  <div class="news-feed_inner-container">
+    <div class="news-feed_empty-feed" *ngIf="(feeds | async)?.length == 0">
+      <h4>No any saved content.</h4>
+    </div>
+    <ion-list>
+      <div class="news-feed_content-card" *ngFor="let feed of feeds | async">
+        <ion-card *ngIf="feed && feed.type === 'news'" class="content-card_news">
+          <ion-card-header>
+            <div>
+              <ion-icon name="paper"></ion-icon>
+            </div>
+            <div>
+              <ion-card-title>{{ feed.subject }}</ion-card-title>
+              <ion-card-subtitle>{{ (feed.group | groupName | async)?.name }}</ion-card-subtitle>
+            </div>
+          </ion-card-header>
+          <div class="content-card_news-footer">
+            <div class="news-footer_upper">{{ feed.created | dateFormat }}</div>
+            <div class="news-footer_lower">
+              <ion-button (click)="deleteSavedContent(feed)" [disabled]="!(feed.id | saveContent | async)" expand="block" fill="clear" shape="round" class="button_save">Unsave</ion-button>
+              <ion-button (click)="openNews(feed)" fill="clear" expand="block" class="button_read">Read</ion-button>
+            </div>
+          </div>
+        </ion-card>
+        <ion-card *ngIf="feed && feed.type === 'announce'" class="content-card_announce">
+          <ion-card-header>
+            <div>
+              <ion-icon name="megaphone"></ion-icon>
+            </div>
+            <div>
+              <ion-card-title>{{ (feed.group | groupName | async)?.name }}</ion-card-title>
+              <ion-card-subtitle>{{ feed.created | dateFormat }}</ion-card-subtitle>
+            </div>
+          </ion-card-header>
+          <ion-card-content>
+            {{ feed.content }}
+          </ion-card-content>
+          <ion-item lines="none" *ngIf="feed.files.length > 0 && feed.files[0] != ''">
+            <ion-list>
+              <div *ngFor="let file of feed.files; index as f;">
+                <a href="{{ file }}" target="_blank">{{ (feed.filesRef[f] | fileName | async)?.name }}</a>
+                <ion-progress-bar *ngIf="progression >= 0 && progression < 1" [value]="progression"></ion-progress-bar>
+              </div>
+            </ion-list>
+          </ion-item>
+          <ion-item *ngIf="feed.images.length > 0 && feed.images[0] != ''">
+              <ion-slides pager="true" [options]="">
+                  <ion-slide *ngFor="let image of feed.images; index as i;" style="width: 100%; align-self: center;">
+                      <a href="{{ image }}" target="_blank"><img src="{{ image }}" alt="{{ (feed.imagesRef[i] | fileName | async)?.name }}"></a>
+                  </ion-slide>
+              </ion-slides>
+          </ion-item>
+          <div class="content_card_announce-footer">
+            <ion-button (click)="deleteSavedContent(feed)" [disabled]="!(feed.id | saveContent | async)" expand="block" fill="clear" shape="round" class="button_save">Unsave</ion-button>
+          </div>
+        </ion-card>
+      </div>
+    </ion-list>
+  </div>
+</div>

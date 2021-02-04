@@ -1,0 +1,18 @@
+<ion-content class="ion-padding">
+  <div class="google_sign-in_container">
+    <div class="login_title">
+      <div class="title">
+        <h1>UIA</h1>
+      </div>
+      <div class="subtitle">
+        <span>University Information Announce</span>
+      </div>
+    </div>
+    <div class="login_button">
+      <ion-button expand="block" color="danger" (click)="googleLogin()">Sign In with Google</ion-button>
+    </div>
+    <div class="login_error" *ngIf="loginError">
+      {{ loginErrorMessage }}
+    </div>
+  </div>
+</ion-content>

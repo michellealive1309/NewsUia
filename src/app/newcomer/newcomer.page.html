@@ -1,0 +1,21 @@
+<ion-content>
+
+    To complete account creation, You need to provide some profile.
+  
+      <ion-item>
+        <ion-label position="stacked">Faculty</ion-label>
+        <ion-select placeholder="Select One" [(ngModel)]="selectedFaculty" okText="Okay" cancelText="Dismiss" (ionChange)="onFacultyChange()">
+          <ion-select-option *ngFor="let f of faculty" value="{{ f.dpid }}">{{ f.dpname }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label position="stacked">Majority</ion-label>
+        <ion-select placeholder="Select One" [(ngModel)]="selectedMajority"  okText="Okay" cancelText="Dismiss" [(disabled)]="!onFacultySelected" (ionChange)="onMajorityChange()">
+          <ion-select-option *ngFor="let sd of subDepartment" value="{{ sd.sdid }}">{{ sd.sdname }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+  
+      <ion-button (click)="onSubmittedData()" [(disabled)]="!onMajoritySelected"> Submit </ion-button>
+  </ion-content>
+  

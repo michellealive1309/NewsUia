@@ -1,0 +1,28 @@
+.google_sign-in_container {
+    top: 35%;
+    position: relative;
+    .login_title {
+        text-align: center;
+        div { display: block; }
+        .title h1 {
+            font-size: 2em;
+        }
+        .subtitle span {
+            font-size: 1em;
+        }
+    }
+    .login_button {
+        margin: 10px auto;
+        width: 100%;
+        text-align: center;
+        ion-button {
+            margin: 10px auto;
+            max-width: 500px;
+        }
+    }
+    .login_error {
+        margin: 10px 0 10px;
+        text-align: center;
+        color: red;
+    }
+}

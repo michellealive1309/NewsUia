@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-searchbar style="max-width: 700px;margin: 0 auto;" placeholder="Search" (ionChange)="onSearchChange($event)" [disabled]="isConnect" [debounce]="800"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="search_container">
+    <div class="search_inner-container">
+      <ion-list>
+        <ion-card *ngFor="let group of searchResult | async">
+          <ion-card-header>
+            <div>
+              <ion-icon *ngIf="group.privacy === 'public'" name="globe"></ion-icon>
+              <ion-icon *ngIf="group.privacy === 'private'" name="lock"></ion-icon>
+            </div>
+            <div>
+              <ion-card-title>{{ group.name }}</ion-card-title>
+              <ion-card-subtitle>{{ group.created | dateFormat }}</ion-card-subtitle>
+            </div>
+          </ion-card-header>
+          <ion-card-content>
+            {{ group.subscriber?.length }} Student(s) subscribed this group.
+          </ion-card-content>
+          <div class="group-card_owner">
+            {{ group.owner | nameGetter | async }}
+          </div>
+          <div class="group-card_footer">
+            <ion-button (click)="subscribeGroup(group)" [disabled]="group.id | subscribeGroup | async" expand="block" fill="clear" color="success">
+              Subscribe
+            </ion-button>
+          </div>
+        </ion-card>
+      </ion-list>
+    </div>
+  </div>
+</ion-content>
